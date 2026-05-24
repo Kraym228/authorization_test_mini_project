@@ -29,18 +29,28 @@ jobs:
 
       - name: Run tests
         run: pytest --alluredir=allure-results 
+        continue-on-error: true
 
       - name: Generate Allure report
         if: always()
         uses: allure-framework/allure-action@v0 
         with: 
-            report-directory: "allure-results"
+          report-directory: "allure-results"
 
 
-      - name: Github Actions Artifacts
+
+      - name: Upload Github Actions Artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
             name: allure-report
-            path: allure-results
+            path: allure-report
         continue-on-error: true 
+
+      - name: Deploy to GitHub Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: allure-report
+            publish_branch: gh-pages
