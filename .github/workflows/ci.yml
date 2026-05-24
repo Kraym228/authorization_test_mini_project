@@ -30,7 +30,13 @@ jobs:
       - name: Run tests
         run: pytest --alluredir=allure-results 
 
-
+      - name: Get Allure report
+        if: always()
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with: 
+            ref: gh-pages
+            path: gh-pages
       - name: Generate Allure report
         if: always()
         uses: simple-elf/allure-report-action@master
