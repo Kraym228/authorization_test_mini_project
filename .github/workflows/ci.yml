@@ -30,8 +30,10 @@ jobs:
         with: 
             report-directory: "./"
 
+
       - name: Github Actions Artifacts
         uses: actions/upload-artifact@v7
         with:
             name: allure-report
             path: allure-results
+        continue-on-error: true 
