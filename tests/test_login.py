@@ -1,8 +1,6 @@
 from base.base_test import BaseTest
 import pytest
-import random
 from pages.login_is_correct import LoggedInSuccessPage
-import time
 import allure
 
 
