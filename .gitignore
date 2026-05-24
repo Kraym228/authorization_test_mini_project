@@ -1,5 +1,4 @@
-# Создайте файл .gitignore
-echo "# Python
+# Python
 __pycache__/
 *.py[cod]
 *.so
@@ -8,20 +7,11 @@ env/
 venv/
 .venv/
 .env
-
-# Allure reports
 allure-results/
 allure-report/
-
-# IDE
 .vscode/
 .idea/
 *.swp
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Pytest
 .pytest_cache/
-" > .gitignore
