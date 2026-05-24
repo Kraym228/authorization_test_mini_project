@@ -5,7 +5,9 @@ from selenium.webdriver.chrome.options import Options
 
 @pytest.fixture(scope='function',autouse=True)
 def driver(request):
-    driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument('--headless')
+    driver = webdriver.Chrome(options=options)
     request.cls.driver = driver 
     yield driver
     driver.quit()
