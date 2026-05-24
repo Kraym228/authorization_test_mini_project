@@ -10,7 +10,7 @@ class TestLogin(BaseTest):
     @pytest.mark.smoke
     def test_login(self):
         self.login_page.open()
-        self.login_page.enter_username('student')
+        self.login_page.enter_username('student1')
         self.login_page.enter_password('Password123')
         self.login_page.submit()
         success_page = LoggedInSuccessPage(self.driver)
