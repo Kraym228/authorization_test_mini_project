@@ -19,13 +19,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: download requirements
+      - name: download dependencies
         run: pip install -r requirements.txt
     
       - name: Install Chrome
         run: |
             sudo apt-get update
-            sudo apt-get install -y google-chrome
+            sudo apt-get install -y google-chrome-stable
 
       - name: Run tests
         run: pytest --alluredir=allure-results 
@@ -34,7 +34,7 @@ jobs:
         if: always()
         uses: allure-framework/allure-action@v0 
         with: 
-            report-directory: "allure-reports"
+            report-directory: "allure-results"
 
 
       - name: Github Actions Artifacts
